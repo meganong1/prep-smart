@@ -1,27 +1,19 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./styles.module.css";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      {/* <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-      </div>
 
       <div className={styles.center}>
-        <Image
+        <img
           className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          src="/PrepSmartLogo.png"
+          alt="PrepSmart Logo"
+          width={200}
+          height={100}
         />
-      </div> */}
-
+      </div>
       <div className={styles.container}>
         <h1 className={styles.coolText}>PrepSmart</h1>
       </div>

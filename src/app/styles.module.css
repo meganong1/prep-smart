@@ -1,0 +1,68 @@
+.body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eb6c05, #2c7eb8);
+}
+
+.description {
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  font-size: 0.85rem;
+  max-width: var(--max-width);
+  width: 100%;
+  z-index: 2;
+  font-family: var(--font-mono);
+}
+
+.container {
+  position: absolute;
+  /* display: flex; */
+  justify-content: center;
+  align-items: top;
+  height: 30vh;
+  overflow: hidden;
+  margin-top: 1px;
+}
+
+.coolText {
+  font-size: 8rem;
+  font-family: 'Comic Sans', sans-serif;
+  color: rgb(254, 254, 254);
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 2px #fff, 0 0 7px #fff, 0 0 12px #7b69ff, 0 0 17px #7b69ff, 0 0 22px #7b69ff, 0 0 27px #7b69ff, 0 0 32px #7b69ff;
+  }
+  to {
+    text-shadow: 0 0 4px #fff, 0 0 14px #7b69ff, 0 0 24px #7b69ff, 0 0 34px #7b69ff, 0 0 44px #7b69ff, 0 0 54px #7b69ff, 0 0 64px #7b69ff;
+  }
+}
+
+.logo {
+  position: absolute; /* Position the logo absolutely */
+  top: 1rem; /* Adjust top position as needed */
+  left: 1rem; /* Adjust left position as needed */
+  width: 180px; /* Adjust width as needed */
+  height: 70px; /* Adjust height as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* filter: brightness(0) invert(1); /* Adjust filter as needed */
+}
+
+
+
