@@ -40,7 +40,6 @@
   font-size: 8rem;
   font-family: 'Comic Sans', sans-serif;
   color: rgb(254, 254, 254);
-  text-transform: uppercase;
   letter-spacing: 0.5rem;
   animation: glow 1.5s ease-in-out infinite alternate;
 }
