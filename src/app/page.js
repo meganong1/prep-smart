@@ -1,5 +1,5 @@
 
-"use client";
+'use client';
 
 import {useCompletion} from 'ai/react'
 import styles from './page.module.css';
@@ -10,7 +10,7 @@ export default function Page() {
   const [inputVal, setInputVal] = useState("");  
   const router = useRouter();
 
-  const handleSubmit = (event) => {
+  const handleSubmitMeg = (event) => {
     event.preventDefault(); 
     router.push('/Question') 
   };
@@ -20,19 +20,19 @@ export default function Page() {
     stop, 
     isLoading, 
     handleInputChange, 
-    handleSubmitChat} = useCompletion({api: '/api/completion'})
+    handleSubmit} = useCompletion({api: '/api/completion'})
 
   return (
 
     <div className={styles.main}>
-      <form onSubmit={handleSubmitChat}>
+      <form onSubmit={handleSubmit}>
       <div className= "chat">
       <input className= "chatbox" 
         type="text" 
         value={input} 
         onChange={handleInputChange} 
-        placeholder='Submit response' 
-      />
+        placeholder='Submit response'
+        />
         <button className="stopbutton"
           onClick={stop} 
         >
@@ -46,8 +46,11 @@ export default function Page() {
         </button>
         </div>
         </form>
+        <output className="text">
+          AI Interview Feedback: <span>{completion}</span>
+          </output>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmitMeg}>
           <input
             type="text"
             placeholder="Type your question..."
@@ -57,9 +60,6 @@ export default function Page() {
           <button type="submit">Enter</button>
         </form>
       </div>
-    <output>
-      AI Interview Feedback: <span>{completion}</span>
-    </output>
   </div>  
   )
 }
