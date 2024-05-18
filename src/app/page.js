@@ -10,21 +10,21 @@ export default function Home() {
     handleSubmit} = useCompletion({api: '/api/completion'})
 
   return (
-    <div>
-    <form onSubmit={handleSubmit} className="space-y-2">
-      <input 
+    <div className="app">
+    <form onSubmit={handleSubmit}>
+      <div className= "chat">
+      <input className= "chatbox" 
         type="text" 
         value={input} 
         onChange={handleInputChange} 
-        placeholder='Submit Response to interview question' 
+        placeholder='Submit response' 
       />
-      <div>
-        <button 
+        <button className="stopbutton"
           onClick={stop} 
         >
           Stop
         </button>
-        <button 
+        <button className="submitbutton"
           disabled={isLoading} 
           type='submit' 
         >
@@ -32,8 +32,8 @@ export default function Home() {
         </button>
       </div>
     </form>
-    <output className="text-lg">
-      AI Result: <span className="font-bold">{completion}</span>
+    <output>
+      AI Interview Feedback: <span>{completion}</span>
     </output>
   </div>  
   )
