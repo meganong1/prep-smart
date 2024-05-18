@@ -20,11 +20,12 @@ export default function Page() {
     stop, 
     isLoading, 
     handleInputChange, 
-    handleSubmit} = useCompletion({api: '/api/completion'})
+    handleSubmitChat} = useCompletion({api: '/api/completion'})
 
   return (
-    <main className={styles.main}>
-      <form onSubmit={handleSubmit}>
+
+    <div className={styles.main}>
+      <form onSubmit={handleSubmitChat}>
       <div className= "chat">
       <input className= "chatbox" 
         type="text" 
@@ -43,7 +44,8 @@ export default function Page() {
         >
           {isLoading ? 'Loading..' : 'Send'}
         </button>
-
+        </div>
+        </form>
       <div>
         <form onSubmit={handleSubmit}>
           <input
@@ -55,7 +57,6 @@ export default function Page() {
           <button type="submit">Enter</button>
         </form>
       </div>
-    </form>
     <output>
       AI Interview Feedback: <span>{completion}</span>
     </output>
