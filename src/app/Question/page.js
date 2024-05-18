@@ -9,7 +9,7 @@ export default function Question() {
   return (
     <main className={styles.main}>
       <div>
-        <h1>Card Entered</h1>
+        <h1>Question Entered</h1>
       </div>
       <div>
        
