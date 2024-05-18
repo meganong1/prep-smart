@@ -1,5 +1,7 @@
+
 "use client";
 
+import {useCompletion} from 'ai/react'
 import styles from './page.module.css';
 import { useState } from 'react'; 
 import { useRouter } from 'next/navigation';  
@@ -12,9 +14,35 @@ export default function Page() {
     event.preventDefault(); 
     router.push('/Question') 
   };
+  
+  const {completion, 
+    input, 
+    stop, 
+    isLoading, 
+    handleInputChange, 
+    handleSubmit} = useCompletion({api: '/api/completion'})
 
   return (
     <main className={styles.main}>
+      <form onSubmit={handleSubmit}>
+      <div className= "chat">
+      <input className= "chatbox" 
+        type="text" 
+        value={input} 
+        onChange={handleInputChange} 
+        placeholder='Submit response' 
+      />
+        <button className="stopbutton"
+          onClick={stop} 
+        >
+          Stop
+        </button>
+        <button className="submitbutton"
+          disabled={isLoading} 
+          type='submit' 
+        >
+          {isLoading ? 'Loading..' : 'Send'}
+        </button>
 
       <div>
         <form onSubmit={handleSubmit}>
@@ -27,6 +55,10 @@ export default function Page() {
           <button type="submit">Enter</button>
         </form>
       </div>
-    </main>
-  );
+    </form>
+    <output>
+      AI Interview Feedback: <span>{completion}</span>
+    </output>
+  </div>  
+  )
 }
