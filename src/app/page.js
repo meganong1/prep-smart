@@ -3,7 +3,6 @@
 import useSpeechRecognition from "../hooks/useSpeechRecognitionHook"
 import styles from './page.module.css';
 import { useState } from 'react'; 
-
 import { useRouter } from 'next/navigation';  
 import { useCompletion } from 'ai/react'; // Ensure this is a valid import or replace with appropriate logic
 import Card from '@mui/material/Card';
@@ -94,12 +93,8 @@ export default function Page() {
         <div className={styles.container}>
         <h1 className={styles.coolText}>PrepSmart</h1>
         </div>
-    </div>  
 
-
-      </div>
-
-      <div>
+        <div>
              {hasRecognitionSupport ? (
                 <>
                     <div>
@@ -117,9 +112,7 @@ export default function Page() {
                 <h1>Your browser has no speech recognition support</h1>
             )}
         </div>
-        
-    </main>
-
+    </div>  
   );
 }
 
