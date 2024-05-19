@@ -1,9 +1,13 @@
 'use client';
 
+import useSpeechRecognition from "../hooks/useSpeechRecognitionHook"
 import styles from './page.module.css';
 import { useState } from 'react'; 
 import { useRouter } from 'next/navigation';  
-import { useCompletion } from 'ai/react'; // Ensure this is a valid import or replace with appropriate logic
+import { useCompletion } from 'ai/react'; 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 export default function Page() {
   const [inputVal, setInputVal] = useState("");  
@@ -20,6 +24,14 @@ export default function Page() {
   };
 
   const {completion, input, stop, isLoading, handleInputChange, handleSubmit} = useCompletion({api: '/api/completion'});
+
+  const {
+    text, 
+    startListening, 
+    stopListening, 
+    isListening, 
+    hasRecognitionSupport
+} = useSpeechRecognition();
 
   return (
     <div className={styles.main}>
@@ -53,9 +65,15 @@ export default function Page() {
       </form>
       <div className={styles.questionList}>
         <h3>Interview Questions</h3>
+        <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
         {questions.map((question, index) => (
-          <p key={index} className={styles.questionItem}>{question}</p> 
+          <Card key={index} style={{ marginBottom: '10px' }}>
+          <CardContent>
+            <Typography variant="body1">{question}</Typography>
+          </CardContent>
+          </Card>
         ))}
+        </div>
       </div>
         <div className={styles.center}>
           <img
@@ -65,6 +83,27 @@ export default function Page() {
             width={200}
             height={100}
           />
+        </div>
+        <div className={styles.container}>
+        </div>
+
+        <div>
+             {hasRecognitionSupport ? (
+                <>
+                    <div>
+                        <button onClick={startListening}>Start Listening</button>
+                    </div>
+
+                    <div>
+                        <button onClick={stopListening}>Stop Listening</button>
+                    </div>
+
+                    {isListening ? (<div>Your browser is currently listening</div>) : null}
+                    {text}
+                </>
+            ) : (
+                <h1>Your browser has no speech recognition support</h1>
+            )}
         </div>
     </div>  
   );
