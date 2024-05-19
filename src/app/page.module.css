@@ -1,24 +1,28 @@
 
 
 
-.body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-
-  }
-  
   .main {
     display: flex;
-    flex-direction: column;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+
+    background: linear-gradient(135deg, #969aaf, #D0EDFF);
+
+    max-height: 100vh;
+    padding-left: 3rem;
+    /**
+     * Dont add padding top and bottom here.  Add them under the child elements
+    **/
+  }
+
+  .rightColumn {
+    display: flex;
+    flex-flow: column;
     justify-content: space-between;
-    align-items: center;
-    padding: 6rem;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #C7CFF4, #D0EDFF);
   }
   
+  
+
   .title {
     margin-bottom: 20px;
   }
@@ -35,7 +39,6 @@
   }
   
   .logo {
-    position: absolute; 
     top: 1rem;
     left: 1rem; 
     width: 260px;
@@ -44,13 +47,15 @@
   }
 
   .questionForm {
-    position: absolute;
-    top: 7rem;
-    left: 3rem;
     display: flex;
     flex-direction: column;
   }
 
+  .leftSideColumn {
+    display: flex;
+    flex-flow: column nowrap;
+    max-height: 100%;
+  }
 
 
   .questionForm input {
@@ -62,9 +67,6 @@
   }
 
   .chatForm {
-    position: absolute;
-    bottom: 3rem;
-    right: 3rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -72,8 +74,7 @@
 
   .chat {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .app {
@@ -105,10 +106,15 @@
     border: none;
    }
 
+   .submitQuestion {
+    color: white;
+    background-color: rgb(121,143,243);
+    border-radius: 4px;
+    border: none;
+   }
+   
+
    .output {
-    position: absolute;
-    top: 10rem; /* Adjust as needed */
-    right: 9rem;
     width: 800px; /* Set the desired width */
     font-size: 1rem;
     color: black;
@@ -117,10 +123,6 @@
   }
 
   .questionList {
-    position: absolute;
-    top: 12rem;
-    left: 3rem;
-    height: 70vh;
     overflow-y: auto;
     color: black;
     width: 400px;
@@ -133,4 +135,9 @@
   
    .text {
     color: black;
+   }
+   .recordingButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap
    }
