@@ -1,8 +1,9 @@
 "use client";
 
+import useSpeechRecognition from "../hooks/useSpeechRecognitionHook"
 import styles from './page.module.css';
 import { useState } from 'react'; 
-import { useRouter } from 'next/navigation';  
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
   const [inputVal, setInputVal] = useState("");  
@@ -12,6 +13,14 @@ export default function Page() {
     event.preventDefault(); 
     router.push('/Question') 
   };
+
+  const {
+            text, 
+            startListening, 
+            stopListening, 
+            isListening, 
+            hasRecognitionSupport
+        } = useSpeechRecognition();
 
   return (
     <main className={styles.main}>
@@ -26,7 +35,67 @@ export default function Page() {
           />
           <button type="submit">Enter</button>
         </form>
+
       </div>
+
+      <div>
+             {hasRecognitionSupport ? (
+                <>
+                    <div>
+                        <button onClick={startListening}>Start Listening</button>
+                    </div>
+
+                    <div>
+                        <button onClick={stopListening}>Stop Listening</button>
+                    </div>
+
+                    {isListening ? (<div>Your browser is currently listening</div>) : null}
+                    {text}
+                </>
+            ) : (
+                <h1>Your browser has no speech recognition support</h1>
+            )}
+        </div>
+        
     </main>
   );
 }
+
+
+
+
+
+
+// const Main = () => {
+//     const {
+//         text, 
+//         startListening, 
+//         stopListening, 
+//         isListening, 
+//         hasRecognitionSupport
+//     } = useSpeechRecognition();
+
+//     return (
+//         <div>
+//             {hasRecognitionSupport ? (
+//                 <>
+//                     <div>
+//                         <button onClick={startListening}>Start Listening</button>
+//                     </div>
+
+//                     <div>
+//                         <button onClick={stopListening}>Stop Listening</button>
+//                     </div>
+
+//                     {isListening ? (<div>Your browser is currently listening</div>) : null}
+//                     {text}
+//                 </>
+//             ) : (
+//                 <h1>Your browser has no speech recognition support</h1>
+//             )}
+//         </div>
+//     );
+// }
+
+// export default Main;
+
