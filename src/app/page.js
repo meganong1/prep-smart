@@ -4,6 +4,9 @@ import styles from './page.module.css';
 import { useState } from 'react'; 
 import { useRouter } from 'next/navigation';  
 import { useCompletion } from 'ai/react'; // Ensure this is a valid import or replace with appropriate logic
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 export default function Page() {
   const [inputVal, setInputVal] = useState("");  
@@ -55,11 +58,32 @@ export default function Page() {
         </form>
         <h3>Interview Questions</h3>
         <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
-          {questions.map((question, index) => (
-            <p key={index}>{question}</p> 
-          ))}
+        {questions.map((question, index) => (
+        <Card key={index} style={{ marginBottom: '10px' }}>
+          <CardContent>
+            <Typography variant="body1">{question}</Typography>
+          </CardContent>
+        </Card>
+      ))}
         </div>
       </div>
+
+      <main className={styles.main}>
+
+        <div className={styles.center}>
+        <img
+          className={styles.logo}
+          src="/PrepSmartLogo.png"
+          alt="PrepSmart Logo"
+          width={200}
+          height={100}
+        />
+        </div>
+        <div className={styles.container}>
+        <h1 className={styles.coolText}>PrepSmart</h1>
+        </div>
+      </main>
+
     </div>  
   );
 }
