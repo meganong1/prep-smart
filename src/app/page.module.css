@@ -1,147 +1,146 @@
+.main {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+
+  background: linear-gradient(135deg, #969aaf, #D0EDFF);
+
+  max-height: 100vh;
+  height:100vh;
+  padding-left: 3rem;
+  /**
+   * Dont add padding top and bottom here.  Add them under the child elements
+  **/
+}
+
+.rightColumn {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding-left: 100px;
+}
 
 
 
-  .main {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-end;
+.title {
+  margin-bottom: 20px;
+}
 
-    background: linear-gradient(135deg, #969aaf, #D0EDFF);
+.description {
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  font-size: 0.85rem;
+  max-width: var(--max-width);
+  width: 100%;
+  z-index: 2;
+  font-family: var(--font-mono);
+}
 
-    max-height: 100vh;
-    height:100vh;
-    padding-left: 3rem;
-    /**
-     * Dont add padding top and bottom here.  Add them under the child elements
-    **/
-  }
+.logo {
+  top: 1rem;
+  left: 1rem; 
+  width: 300px;
+  height: 200px; 
+  /* filter: brightness(0) invert(1); */
+}
 
-  .rightColumn {
-    height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    padding-left: 100px;
-    padding-top: 100px;
-  }
-  
-  
+.questionForm {
+  display: flex;
+  flex-direction: column;
+}
 
-  .title {
-    margin-bottom: 20px;
-  }
-
-  .description {
-    display: inherit;
-    justify-content: inherit;
-    align-items: inherit;
-    font-size: 0.85rem;
-    max-width: var(--max-width);
-    width: 100%;
-    z-index: 2;
-    font-family: var(--font-mono);
-  }
-  
-  .logo {
-    top: 1rem;
-    left: 1rem; 
-    width: 260px;
-    height: 110px; 
-    /* filter: brightness(0) invert(1); */
-  }
-
-  .questionForm {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .leftSideColumn {
-    display: flex;
-    flex-flow: column nowrap;
-    max-height: 100%;
-  }
+.leftSideColumn {
+  display: flex;
+  flex-flow: column nowrap;
+  max-height: 100%;
+}
 
 
-  .questionForm input {
-    width: 400px; /* Set the desired width */
-    padding: 0.5rem; /* Optional: Add padding for better appearance */
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 0.5rem; /* Space between input and button */
-  }
+.questionForm input {
+  width: 400px; /* Set the desired width */
+  padding: 0.5rem; /* Optional: Add padding for better appearance */
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 0.5rem; /* Space between input and button */
+}
 
-  .chatForm {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
+.chatForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 
-  .chat {
-    display: flex;
-    align-items: flex-end;
-  }
+.chat {
+  display: flex;
+  align-items: flex-end;
+}
 
-  .app {
-    background-color: rgb(125, 154, 255);
-  }
-  
-  .chatbox {
-   width: 800px;
-   padding: 0.5rem; 
-   color: rgb(0, 0, 0);
-   background-color: rgb(255, 255, 255);
-   border-radius: 5px;
-   border: none;
-   margin-right: 5px;   
-  }
-  
-  .stopbutton {
-    color: white;
-    background-color: rgb(116, 24, 24);
-    border-radius: 4px;
-    border: none;
-    margin-right: 5px;
-   }
-  
-   .submitbutton {
-    color: white;
-    background-color: rgb(121,143,243);
-    border-radius: 4px;
-    border: none;
-   }
+.app {
+  background-color: rgb(125, 154, 255);
+}
 
-   .submitQuestion {
-    color: white;
-    background-color: rgb(121,143,243);
-    border-radius: 4px;
-    border: none;
-   }
-   
+.chatbox {
+ width: 500px;
+ height:300px;
+ padding: 0.5rem; 
+ color: rgb(0, 0, 0);
+ background-color: rgb(255, 255, 255);
+ border-radius: 5px;
+ border: none;
+ margin-right: 5px;   
+ font-family: var(--font-mono);
 
-   .output {
-    width: 800px; /* Set the desired width */
-    font-size: 1rem;
-    color: black;
-    display: block; /* Ensures the output is treated as a block-level element */
-    margin-top: 20px; /* Adjust the value to provide enough space above the output */
-  }
+}
 
-  .questionList {
-    overflow-y: auto;
-    color: black;
-    width: 400px;
-  }
-  
-  .questionItem {
-    margin: 0.5rem 0;
-    color: black;
-  }
-  
-   .text {
-    color: black;
-   }
-   .recordingButtons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap:nowrap
-   }
+.stopbutton {
+  color: white;
+  background-color: rgb(116, 24, 24);
+  border-radius: 4px;
+  border: none;
+  margin-right: 5px;
+ }
+
+ .submitbutton {
+  color: white;
+  background-color: rgb(121,143,243);
+  border-radius: 4px;
+  border: none;
+ }
+
+ .submitQuestion {
+  color: white;
+  background-color: rgb(121,143,243);
+  border-radius: 4px;
+  border: none;
+ }
+ 
+
+ .output {
+  width: 800px; /* Set the desired width */
+  font-size: 1rem;
+  color: black;
+  display: block; /* Ensures the output is treated as a block-level element */
+  margin-top: 20px; /* Adjust the value to provide enough space above the output */
+}
+
+.questionList {
+  overflow-y: auto;
+  color: black;
+  width: 400px;
+}
+
+.questionItem {
+  margin: 0.5rem 0;
+  color: black;
+}
+
+ .text {
+  color: black;
+ }
+ .recordingButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:nowrap
+ }
