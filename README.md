@@ -1,4 +1,4 @@
-## PrepSmart Ai
+## PrepSmart AI
 
 ## Inspiration
 Our inspiration for creating PrepSmart came from our personal experiences. We realized the importance of effective communication skills during job interviews. Many candidates, despite having the right qualifications, struggle to articulate their thoughts clearly and concisely which often leads to missed opportunities. We sought to build a tool that could help individuals practice and improve their interview responses by providing instant feedback tailored to the interviewee’s response. 
