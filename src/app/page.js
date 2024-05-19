@@ -2,7 +2,7 @@
 
 import useSpeechRecognition from "../hooks/useSpeechRecognitionHook"
 import styles from './page.module.css';
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
 import { useRouter } from 'next/navigation';  
 import { useCompletion } from 'ai/react'; 
 import Card from '@mui/material/Card';
@@ -11,11 +11,13 @@ import Typography from '@mui/material/Typography';
 
 export default function Page() {
   const [inputVal, setInputVal] = useState("");  
+  const [chatInputValue, setChatInputValue] = useState("");
   const [questions, setQuestions] = useState([]); // Now using an array to store questions
   const router = useRouter();
 
   // Handle submission of the question form
   const handleSubmitQuestion = (e) => {
+    debugger;
     e.preventDefault();
     if (inputVal.trim()) { // Only add the question if it's not empty
       setQuestions(prevQuestions => [...prevQuestions, inputVal]); // Add the new question to the list
@@ -23,7 +25,16 @@ export default function Page() {
     }
   };
 
-  const {completion, input, stop, isLoading, handleInputChange, handleSubmit} = useCompletion({api: '/api/completion'});
+  const {complete, completion, setInput, input, stop, isLoading} = useCompletion({api: '/api/completion'});
+
+  /**
+   * If the completion changes, set the value of our chatbox input to the completion
+   */
+  useEffect(() => {
+    if (completion) {
+      setChatInputValue(completion)
+    }
+  }, [completion])
 
   const {
     text, 
@@ -33,14 +44,28 @@ export default function Page() {
     hasRecognitionSupport
 } = useSpeechRecognition();
 
+/**
+ * If the recognized text changes, set the value of our chatbox input to the recognized text
+ */
+useEffect(() => {
+  if (text) {
+    setInput(text)
+    complete(text)
+  }
+}, [text])
+
   return (
     <div className={styles.main}>
-      <form onSubmit={handleSubmit} className={styles.chatForm}>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+
+complete(input)
+}} className={styles.chatForm}>
         <div className={styles.chat}>
           <input className={styles.chatbox}
             type="text" 
             value={input} 
-            onChange={handleInputChange} 
+            onChange={event => setInput(event.target.value)} 
             placeholder='Submit response'
           />
           <button className={styles.stopbutton} onClick={stop}>
