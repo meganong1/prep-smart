@@ -15,7 +15,6 @@ export default function Page() {
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
   const router = useRouter();
 
-  // Function to handle the submission of questions
   const handleSubmitQuestion = (e) => {
     e.preventDefault();
     if (inputVal.trim()) {
@@ -24,7 +23,6 @@ export default function Page() {
     }
   };
 
-  // Function to handle clicking on a card
   const handleCardClick = (index) => {
     setSelectedQuestionIndex(index);
   };
@@ -32,11 +30,11 @@ export default function Page() {
   const {complete, completion, setInput, input, stop, isLoading} = useCompletion({api: '/api/completion'});
   const {text, startListening, stopListening, isListening, hasRecognitionSupport} = useSpeechRecognition();
 
-  useEffect(() => {
-    if (completion) {
-      setInputVal(completion);
-    }
-  }, [completion]);
+  // useEffect(() => {
+  //   if (completion) {
+  //     setInputVal(completion);
+  //   }
+  // }, [completion]);
 
   useEffect(() => {
     if (text) {
@@ -105,6 +103,7 @@ export default function Page() {
           height={100}
         />
       </div>
+      
       {hasRecognitionSupport ? (
         <>
           <div>
@@ -112,7 +111,6 @@ export default function Page() {
             <button onClick={stopListening}>Stop Listening</button>
           </div>
           {isListening ? <div>Your browser is currently listening</div> : null}
-          <Typography variant="body1">{text}</Typography>
         </>
       ) : (
         <Typography variant="h5">Your browser has no speech recognition support</Typography>
