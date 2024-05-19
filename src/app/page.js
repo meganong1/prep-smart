@@ -1,12 +1,15 @@
 'use client';
 
+import useSpeechRecognition from "../hooks/useSpeechRecognitionHook"
 import styles from './page.module.css';
 import { useState } from 'react'; 
+
 import { useRouter } from 'next/navigation';  
 import { useCompletion } from 'ai/react'; // Ensure this is a valid import or replace with appropriate logic
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+
 
 export default function Page() {
   const [inputVal, setInputVal] = useState("");  
@@ -22,7 +25,18 @@ export default function Page() {
     }
   };
 
+
   const {completion, input, stop, isLoading, handleInputChange, handleSubmit} = useCompletion({api: '/api/completion'});
+
+  const {
+            text, 
+            startListening, 
+            stopListening, 
+            isListening, 
+            hasRecognitionSupport
+        } = useSpeechRecognition();
+
+
 
   return (
     <div className={styles.main}>
@@ -56,6 +70,7 @@ export default function Page() {
           />
           <button type="submit">Enter</button>
         </form>
+
         <h3>Interview Questions</h3>
         <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
         {questions.map((question, index) => (
@@ -67,10 +82,7 @@ export default function Page() {
       ))}
         </div>
       </div>
-
-      <main className={styles.main}>
-
-        <div className={styles.center}>
+      <div className={styles.center}>
         <img
           className={styles.logo}
           src="/PrepSmartLogo.png"
@@ -82,8 +94,70 @@ export default function Page() {
         <div className={styles.container}>
         <h1 className={styles.coolText}>PrepSmart</h1>
         </div>
-      </main>
-
     </div>  
+
+
+      </div>
+
+      <div>
+             {hasRecognitionSupport ? (
+                <>
+                    <div>
+                        <button onClick={startListening}>Start Listening</button>
+                    </div>
+
+                    <div>
+                        <button onClick={stopListening}>Stop Listening</button>
+                    </div>
+
+                    {isListening ? (<div>Your browser is currently listening</div>) : null}
+                    {text}
+                </>
+            ) : (
+                <h1>Your browser has no speech recognition support</h1>
+            )}
+        </div>
+        
+    </main>
+
   );
 }
+
+
+
+
+
+
+// const Main = () => {
+//     const {
+//         text, 
+//         startListening, 
+//         stopListening, 
+//         isListening, 
+//         hasRecognitionSupport
+//     } = useSpeechRecognition();
+
+//     return (
+//         <div>
+//             {hasRecognitionSupport ? (
+//                 <>
+//                     <div>
+//                         <button onClick={startListening}>Start Listening</button>
+//                     </div>
+
+//                     <div>
+//                         <button onClick={stopListening}>Stop Listening</button>
+//                     </div>
+
+//                     {isListening ? (<div>Your browser is currently listening</div>) : null}
+//                     {text}
+//                 </>
+//             ) : (
+//                 <h1>Your browser has no speech recognition support</h1>
+//             )}
+//         </div>
+//     );
+// }
+
+// export default Main;
+
