@@ -9,6 +9,7 @@
     background: linear-gradient(135deg, #969aaf, #D0EDFF);
 
     max-height: 100vh;
+    height:100vh;
     padding-left: 3rem;
     /**
      * Dont add padding top and bottom here.  Add them under the child elements
@@ -16,9 +17,12 @@
   }
 
   .rightColumn {
+    height: 100%;
     display: flex;
-    flex-flow: column;
+    flex-flow: column nowrap;
     justify-content: space-between;
+    padding-left: 100px;
+    padding-top: 100px;
   }
   
   

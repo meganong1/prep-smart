@@ -55,7 +55,6 @@ export default function Page() {
         questions[selectedQuestionIndex] +
         "to this answer (be very specific, keep under 250 words):" +
         text;
-      debugger;
       complete(textWithPrompt);
     }
   }, [text, complete]);
@@ -108,7 +107,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="rightColumn">
+      <div className={styles.rightColumn}>
         <output className={styles.output}>
           <span>{completion}</span>
         </output>
