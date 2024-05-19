@@ -32,11 +32,11 @@ export default function Page() {
   const {complete, completion, setInput, input, stop, isLoading} = useCompletion({api: '/api/completion'});
   const {text, startListening, stopListening, isListening, hasRecognitionSupport} = useSpeechRecognition();
 
-  useEffect(() => {
-    if (completion) {
-      setInputVal(completion);
-    }
-  }, [completion]);
+  // useEffect(() => {
+  //   if (completion) {
+  //     setInputVal(completion);
+  //   }
+  // }, [completion]);
 
   useEffect(() => {
     if (text) {
