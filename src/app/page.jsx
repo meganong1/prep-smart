@@ -41,7 +41,7 @@ export default function Page() {
   useEffect(() => {
     if (text) {
       setInput(text);
-      let textWithPrompt = responsePrompt + questions[selectedQuestionIndex]+'to this answer (be harsh and specific):'+text;
+      let textWithPrompt = responsePrompt + questions[selectedQuestionIndex]+'to this answer (be very specific, keep under 250 words):'+text;
       complete(textWithPrompt);
     }
   }, [text, complete]);
@@ -50,7 +50,7 @@ export default function Page() {
     <div className={styles.main}>
       <form onSubmit={(e) => { e.preventDefault();
 
-            let textWithPrompt = responsePrompt + questions[selectedQuestionIndex] + 'to this answer (be harsh and specific):'+input;
+            let textWithPrompt = responsePrompt + questions[selectedQuestionIndex] + 'to this answer (be very specific, keep under 250 words):'+input;
 
             console.log(textWithPrompt)
             complete(textWithPrompt); 
@@ -64,9 +64,9 @@ export default function Page() {
             onChange={e => setInput(e.target.value)} 
             placeholder='Submit response'
           />
-          <button className={styles.stopbutton} onClick={stop}>
+          {/* <button className={styles.stopbutton} onClick={stop}>
             Stop
-          </button>
+          </button> */}
           <button className={styles.submitbutton} disabled={isLoading} type='submit'>
             {isLoading ? 'Loading...' : 'Send'}
           </button>
@@ -93,7 +93,7 @@ export default function Page() {
               style={{
                 marginBottom: '10px',
                 cursor: 'pointer',
-                backgroundColor: selectedQuestionIndex === index ? 'yellow' : 'white'
+                backgroundColor: selectedQuestionIndex === index ? '#798FF3' : 'white'
               }}
               onClick={() => handleCardClick(index)}
             >
@@ -117,8 +117,8 @@ export default function Page() {
       {hasRecognitionSupport ? (
         <>
           <div>
-            <button onClick={startListening}>Start Listening</button>
-            <button onClick={stopListening}>Stop Listening</button>
+            <button onClick={startListening}>Start Recording</button>
+            <button onClick={stopListening}>Stop Recording</button>
           </div>
           {isListening ? <div>Your browser is currently listening</div> : null}
         </>
