@@ -25,11 +25,3 @@ As a team of four developers, we struggled quite a bit with the design of our ap
 - Incorporating the Cohere Command-Nightly Chat API for the AI interview coach.
 - Developing the UI design to create an intuitive and user-friendly interview preparation experience.
 
-
-## What's next for PrepSmart AI
-- Allow users to create custom card decks categorized by company
-- Implement a feature to retain practice history for review and progress tracking.
-- Automatically generate commonly asked questions tailored to each company as our question database grows.
-- Enhance multilingual support and recognition capabilities in the speech-to-text function.
-- Provide comprehensive feedback by evaluating tone of voice in addition to content.
-
