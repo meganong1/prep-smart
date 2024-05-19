@@ -53,8 +53,9 @@ export default function Page() {
       let textWithPrompt =
         responsePrompt +
         questions[selectedQuestionIndex] +
-        "to this answer (be very specific, keep under 250 words, always give at least one compliment and one thing to improve on):" +
-        text;
+        "to the answer (be very specific, keep under 250 words):" +
+        text +
+        ". if the response is too short, be very harsh";
       complete(textWithPrompt);
     }
   }, [text, complete]);
@@ -80,7 +81,10 @@ export default function Page() {
             onChange={(e) => setInputVal(e.target.value)}
           />
           <div className="submitQuestion">
-            <button onSubmit={handleSubmitQuestion}>
+            <button
+              className={styles.submitbutton}
+              onSubmit={handleSubmitQuestion}
+            >
               Submit Interview Question
             </button>
           </div>
@@ -118,8 +122,9 @@ export default function Page() {
             let textWithPrompt =
               responsePrompt +
               questions[selectedQuestionIndex] +
-              "to this answer (be very specific, keep under 250 words and always give at least one compliment and one thing to improve on):" +
-              input;
+              "to the answer (be very specific, keep under 250 words):" +
+              text +
+              ". if the response is too short, be very harsh";
 
             complete(textWithPrompt);
           }}
@@ -129,14 +134,22 @@ export default function Page() {
             {hasRecognitionSupport ? (
               <>
                 <div className={styles.recordingButtons}>
-                  <button onClick={e => {
-                    e.preventDefault();
-                    startListening();
-                  }}>Start Recording</button>
-                  <button onClick={e => {
-                    e.preventDefault();
-                    stopListening();
-                    }}>Stop Recording</button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      startListening();
+                    }}
+                  >
+                    Start Recording
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      stopListening();
+                    }}
+                  >
+                    Stop Recording
+                  </button>
                 </div>
                 {isListening ? (
                   <div>Your browser is currently listening</div>
@@ -147,13 +160,13 @@ export default function Page() {
                 Your browser has no speech recognition support
               </Typography>
             )}
-        <textarea
-          className={styles.chatbox}
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          placeholder='Record or type response here...'
-          rows="4" 
-      ></textarea>
+            <textarea
+              className={styles.chatbox}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Record or type response here..."
+              rows="4"
+            ></textarea>
             {/* <button className={styles.stopbutton} onClick={stop}>
             Stop
           </button> */}

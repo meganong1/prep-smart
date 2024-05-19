@@ -17,8 +17,7 @@
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
-  padding-left: 100px;
+  justify-content: space-between; 
 }
 
 
@@ -94,28 +93,21 @@
 
 }
 
-.stopbutton {
-  color: white;
-  background-color: rgb(116, 24, 24);
-  border-radius: 4px;
-  border: none;
-  margin-right: 5px;
- }
-
  .submitbutton {
   color: white;
-  background-color: rgb(121,143,243);
+  height: 50px;
+  background-color: rgb(109, 116, 189);
   border-radius: 4px;
   border: none;
  }
 
- .submitQuestion {
+ /* .submitQuestion {
   color: white;
   background-color: rgb(121,143,243);
   border-radius: 4px;
   border: none;
  }
- 
+  */
 
  .output {
   width: 800px; /* Set the desired width */
