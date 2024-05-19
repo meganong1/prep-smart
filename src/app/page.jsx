@@ -118,7 +118,7 @@ export default function Page() {
             let textWithPrompt =
               responsePrompt +
               questions[selectedQuestionIndex] +
-              "to this answer (be very specific, keep under 250 words, always give at least one compliment and one thing to improve on):" +
+              "to this answer (be very specific, keep under 250 words and always give at least one compliment and one thing to improve on):" +
               input;
 
             complete(textWithPrompt);
