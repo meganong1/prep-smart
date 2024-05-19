@@ -47,7 +47,7 @@ export default function Page() {
   useEffect(() => {
     if (text) {
       setInput(text);
-      let textWithPrompt = responsePrompt + questions[selectedQuestionIndex]+'to this answer (be very specific, keep under 250 words):'+text;
+      let textWithPrompt = responsePrompt + questions[selectedQuestionIndex]+'to this answer (be very specific, keep under 200 words):'+text;
       complete(textWithPrompt);
     }
   }, [text, complete]);
@@ -56,19 +56,19 @@ export default function Page() {
     <div className={styles.main}>
       <form onSubmit={(e) => { e.preventDefault();
 
-            let textWithPrompt = responsePrompt + questions[selectedQuestionIndex] + 'to this answer (be very specific, keep under 250 words):'+input;
+            let textWithPrompt = responsePrompt + questions[selectedQuestionIndex] + 'to this answer (be very specific, keep under 200 words):'+input;
 
             complete(textWithPrompt); 
         
         }} className={styles.chatForm}>
         <div className={styles.chat}>
-          <input
-            className={styles.chatbox}
-            type="text" 
-            value={input}
-            onChange={e => setInput(e.target.value)} 
-            placeholder='Submit response'
-          />
+        <textarea
+          className={styles.chatbox}
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          placeholder='Record or type response here...'
+          rows="4" 
+      ></textarea>
           {/* <button className={styles.stopbutton} onClick={stop}>
             Stop
           </button> */}
@@ -84,14 +84,19 @@ export default function Page() {
       </output>
       </div>
       <form onSubmit={handleSubmitQuestion} className={styles.questionForm}>
-        <input
-          id="question-input"
-          type="text"
-          placeholder="Type your question..."
-          value={inputVal}
-          onChange={e => setInputVal(e.target.value)}
-        />
-      </form>
+          <input
+            id="question-input"
+            type="text"
+            placeholder="Type your question..."
+            value={inputVal}
+            onChange={(e) => setInputVal(e.target.value)}
+          />
+          <div className="submitQuestion">
+            <button onSubmit={handleSubmitQuestion}>
+              Add Interview Question
+            </button>
+          </div>
+        </form>
       <div className={styles.questionList}>
         <h3>Interview Questions</h3>
         <div>
