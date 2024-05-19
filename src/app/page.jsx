@@ -48,12 +48,6 @@ export default function Page() {
   } = useSpeechRecognition();
 
   useEffect(() => {
-    if (completion) {
-      setInput(completion);
-    }
-  }, [completion]);
-
-  useEffect(() => {
     if (text) {
       setInput(text);
       let textWithPrompt =
@@ -136,8 +130,14 @@ export default function Page() {
             {hasRecognitionSupport ? (
               <>
                 <div className={styles.recordingButtons}>
-                  <button onClick={startListening}>Start Recording</button>
-                  <button onClick={stopListening}>Stop Recording</button>
+                  <button onClick={e => {
+                    e.preventDefault();
+                    startListening();
+                  }}>Start Recording</button>
+                  <button onClick={e => {
+                    e.preventDefault();
+                    stopListening();
+                    }}>Stop Recording</button>
                 </div>
                 {isListening ? (
                   <div>Your browser is currently listening</div>
