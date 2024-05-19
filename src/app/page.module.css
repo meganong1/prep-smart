@@ -26,32 +26,6 @@
     font-family: var(--font-mono);
   }
   
-  .container {
-    position: absolute;
-    justify-content: center;
-    align-items: top;
-    height: 30vh;
-    overflow: hidden;
-    margin-top: 1px;
-  }
-  
-  .coolText {
-    font-size: 8rem;
-    font-family: 'Comic Sans', sans-serif;
-    color: rgb(254, 254, 254);
-    letter-spacing: 0.5rem;
-    animation: glow 1.5s ease-in-out infinite alternate;
-  }
-  
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 2px #fff, 0 0 7px #fff, 0 0 12px #7b69ff, 0 0 17px #7b69ff, 0 0 22px #7b69ff, 0 0 27px #7b69ff, 0 0 32px #7b69ff;
-    }
-    to {
-      text-shadow: 0 0 4px #fff, 0 0 14px #7b69ff, 0 0 24px #7b69ff, 0 0 34px #7b69ff, 0 0 44px #7b69ff, 0 0 54px #7b69ff, 0 0 64px #7b69ff;
-    }
-  }
-  
   .logo {
     position: absolute; 
     top: 1rem;
@@ -61,3 +35,91 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* filter: brightness(0) invert(1); */
   }
+
+  .questionForm {
+    position: absolute;
+    top: 7rem;
+    left: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .questionForm input {
+    width: 400px; /* Set the desired width */
+    padding: 0.5rem; /* Optional: Add padding for better appearance */
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 0.5rem; /* Space between input and button */
+  }
+
+  .chatForm {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .chat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .app {
+    background-color: rgb(125, 154, 255);
+  }
+  
+  .chatbox {
+   width: 800px;
+   padding: 0.5rem; 
+   color: rgb(0, 0, 0);
+   background-color: rgb(255, 255, 255);
+   border-radius: 5px;
+   border: none;
+   margin-right: 5px;   
+  }
+  
+  .stopbutton {
+    color: white;
+    background-color: rgb(116, 24, 24);
+    border-radius: 4px;
+    border: none;
+    margin-right: 5px;
+   }
+  
+   .submitbutton {
+    color: white;
+    background-color: rgb(49, 135, 82);
+    border-radius: 4px;
+    border: none;
+   }
+
+   .output {
+    position: absolute;
+    top: 10rem; /* Adjust as needed */
+    right: 9rem;
+    width: 800px; /* Set the desired width */
+    font-size: 1rem;
+    color: black;
+  }
+
+  .questionList {
+    position: absolute;
+    top: 12rem;
+    left: 3rem;
+    max-height: 200px;
+    overflow-y: auto;
+    color: black;
+    width: 400px;
+  }
+  
+  .questionItem {
+    margin: 0.5rem 0;
+    color: black;
+  }
+  
+   .text {
+    color: black;
+   }

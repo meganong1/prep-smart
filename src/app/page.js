@@ -23,60 +23,49 @@ export default function Page() {
 
   return (
     <div className={styles.main}>
-      <form onSubmit={handleSubmit}>
-        <div className="chat">
-          <input className="chatbox"
+      <form onSubmit={handleSubmit} className={styles.chatForm}>
+        <div className={styles.chat}>
+          <input className={styles.chatbox}
             type="text" 
             value={input} 
             onChange={handleInputChange} 
             placeholder='Submit response'
           />
-          <button className="stopbutton" onClick={stop}>
+          <button className={styles.stopbutton} onClick={stop}>
             Stop
           </button>
-          <button className="submitbutton" disabled={isLoading} type='submit'>
+          <button className={styles.submitbutton} disabled={isLoading} type='submit'>
             {isLoading ? 'Loading..' : 'Send'}
           </button>
         </div>
       </form>
-      <output className="text">
-        AI Interview Feedback: <span>{completion}</span>
+      <output className={styles.output}>
+        <span>{completion}</span>
       </output>
-      <div>
-        <form onSubmit={handleSubmitQuestion}>
-          <input
-            id="question-input"
-            type="text"
-            placeholder="Type your question..."
-            value={inputVal}  
-            onChange={(e) => setInputVal(e.target.value)}
-          />
-          <button type="submit">Enter</button>
-        </form>
-        <h3>Interview Questions</h3>
-        <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
-          {questions.map((question, index) => (
-            <p key={index}>{question}</p> 
-          ))}
-        </div>
-      </div>
-
-      <main className={styles.main}>
-
-        <div className={styles.center}>
-        <img
-          className={styles.logo}
-          src="/PrepSmartLogo.png"
-          alt="PrepSmart Logo"
-          width={200}
-          height={100}
+      <form onSubmit={handleSubmitQuestion} className={styles.questionForm}>
+        <input
+          id="question-input"
+          type="text"
+          placeholder="Type your question..."
+          value={inputVal}  
+          onChange={(e) => setInputVal(e.target.value)}
         />
+      </form>
+      <div className={styles.questionList}>
+        <h3>Interview Questions</h3>
+        {questions.map((question, index) => (
+          <p key={index} className={styles.questionItem}>{question}</p> 
+        ))}
+      </div>
+        <div className={styles.center}>
+          <img
+            className={styles.logo}
+            src="/PrepSmartLogo.png"
+            alt="PrepSmart Logo"
+            width={200}
+            height={100}
+          />
         </div>
-        <div className={styles.container}>
-        <h1 className={styles.coolText}>PrepSmart</h1>
-        </div>
-      </main>
-
     </div>  
   );
 }
