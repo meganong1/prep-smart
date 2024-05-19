@@ -11,9 +11,11 @@ import Typography from '@mui/material/Typography';
 
 export default function Page() {
   const [inputVal, setInputVal] = useState("");
-  const [questions, setQuestions] = useState([]);
-  const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
+  const [questions, setQuestions] = useState(['When is one time you worked well in a team?']);
+  const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
   const router = useRouter();
+  const responsePrompt = 'Give me feedback to the interview question: ';
+  // const [questionPrompt, setQuestionPrompt] = useState(null);
 
   const handleSubmitQuestion = (e) => {
     e.preventDefault();
@@ -39,13 +41,21 @@ export default function Page() {
   useEffect(() => {
     if (text) {
       setInput(text);
-      complete(text);
+      let textWithPrompt = responsePrompt + questions[selectedQuestionIndex]+'to this answer (be harsh and specific):'+text;
+      complete(textWithPrompt);
     }
   }, [text, complete]);
 
   return (
     <div className={styles.main}>
-      <form onSubmit={(e) => { e.preventDefault(); complete(input); }} className={styles.chatForm}>
+      <form onSubmit={(e) => { e.preventDefault();
+
+            let textWithPrompt = responsePrompt + questions[selectedQuestionIndex] + 'to this answer (be harsh and specific):'+input;
+
+            console.log(textWithPrompt)
+            complete(textWithPrompt); 
+        
+        }} className={styles.chatForm}>
         <div className={styles.chat}>
           <input
             className={styles.chatbox}
