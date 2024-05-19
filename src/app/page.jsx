@@ -147,13 +147,13 @@ export default function Page() {
                 Your browser has no speech recognition support
               </Typography>
             )}
-            <input
-              className={styles.chatbox}
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Submit response"
-            />
+        <textarea
+          className={styles.chatbox}
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          placeholder='Record or type response here...'
+          rows="4" 
+      ></textarea>
             {/* <button className={styles.stopbutton} onClick={stop}>
             Stop
           </button> */}
