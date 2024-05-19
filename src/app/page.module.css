@@ -15,6 +15,10 @@
     background: linear-gradient(135deg, #eb6c05, #2c7eb8);
   }
   
+  .title {
+    margin-bottom: 20px;
+  }
+
   .description {
     display: inherit;
     justify-content: inherit;
@@ -103,13 +107,15 @@
     width: 800px; /* Set the desired width */
     font-size: 1rem;
     color: black;
+    display: block; /* Ensures the output is treated as a block-level element */
+    margin-top: 20px; /* Adjust the value to provide enough space above the output */
   }
 
   .questionList {
     position: absolute;
     top: 12rem;
     left: 3rem;
-    max-height: 200px;
+    height: 70vh;
     overflow-y: auto;
     color: black;
     width: 400px;

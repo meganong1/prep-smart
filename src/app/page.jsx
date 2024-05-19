@@ -11,7 +11,13 @@ import Typography from '@mui/material/Typography';
 
 export default function Page() {
   const [inputVal, setInputVal] = useState("");
-  const [questions, setQuestions] = useState(['When is one time you worked well in a team?']);
+  const [questions, setQuestions] = useState(['When is one time you worked well in a team?',
+'How have you dealt with a failure at the workplace?',
+'Share an example of how you dealt with a difficult client.',
+'What do you do if you disagree with someone at work?',
+'Describe any goal you reached and how you achieved it.',
+'Why should I hire you?',
+'How do you approach problems? What is your process?']);
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
   const router = useRouter();
   const responsePrompt = 'Give me feedback to the interview question: ';
@@ -52,7 +58,6 @@ export default function Page() {
 
             let textWithPrompt = responsePrompt + questions[selectedQuestionIndex] + 'to this answer (be harsh and specific):'+input;
 
-            console.log(textWithPrompt)
             complete(textWithPrompt); 
         
         }} className={styles.chatForm}>
@@ -72,9 +77,12 @@ export default function Page() {
           </button>
         </div>
       </form>
+      <div>
       <output className={styles.output}>
-        <span>{completion}</span>
+        <span>
+        {completion}</span>
       </output>
+      </div>
       <form onSubmit={handleSubmitQuestion} className={styles.questionForm}>
         <input
           id="question-input"
@@ -86,7 +94,7 @@ export default function Page() {
       </form>
       <div className={styles.questionList}>
         <h3>Interview Questions</h3>
-        <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+        <div>
           {questions.map((question, index) => (
             <Card
               key={index}
