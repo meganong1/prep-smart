@@ -13,7 +13,12 @@ The AI interview coach will evaluate the user’s response and provide feedback,
 PrepSmart is built with the user’s career success in mind. We only succeed when our users do!
 
 ## How we built it
-For the frontend, we used Next.js to build a clean, simple interface. Two major tasks for the backend include the implementation of the core features of our application which involve **Cohere’s command-nightly chat API and the Mozilla Web Speech API**. After implementing each API to work separately, we then had to integrate the Cohere chat API with our speech-to-text API in order for our AI interview coach to give instant feedback to users' spoken responses.
+For the frontend, we used Next.js to build a clean, simple interface. Two major tasks for the backend include the implementation of the core features of our application which involve Cohere’s command-nightly chat API and the Mozilla Web Speech API. After implementing each API to work separately, we then had to integrate the Cohere chat API with our speech-to-text API in order for our AI interview coach to give instant feedback to users' spoken responses.
+
+## Challenges we ran into
+Our backend struggled with integrating Cohere’s chat API with Mozilla Web Speech API. Implementing the APIs separately was a straightforward process, but using our APIs together to perform joint functionality was out of our comfort zone. We ran into problems when we were trying to input the result of speech recognition as the prompt of our AI chat prompt. Also due to the focus of our platform, we would like the response generated from the AI chat to be career preparation and interview focused, so we also had to pre-prompt in our code in order to control the scope of the response generated.
+
+As a team of four developers, we struggled quite a bit with the design of our application. Fixing our interface to appear as desired was also a challenge for us. We ran into problems in styling with CSS and also form submission. 
 
 ## Accomplishments that we're proud of
 - Integrating the Mozilla Web Speech API for speech-to-text recognition.

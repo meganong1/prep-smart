@@ -1,138 +1,114 @@
 .main {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: flex-end;
-
-  background: linear-gradient(135deg, #969aaf, #D0EDFF);
-
-  max-height: 100vh;
-  height:100vh;
-  padding-left: 3rem;
-  /**
-   * Dont add padding top and bottom here.  Add them under the child elements
-  **/
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    height: 100vh;
 }
 
-.rightColumn {
-  height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between; 
+.top {
+    display: flex;
+    background: #8991b5;
+    justify-content: space-between;
+    padding: 1rem 2rem;
 }
 
-
-
-.title {
-  margin-bottom: 20px;
-}
-
-.description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
-  width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono);
-}
-
-.logo {
-  top: 1rem;
-  left: 1rem; 
-  width: 300px;
-  height: 200px; 
-  /* filter: brightness(0) invert(1); */
-}
-
-.questionForm {
-  display: flex;
-  flex-direction: column;
+.bottom {
+    display: flex;
+    background: linear-gradient(135deg, #969aaf, #D0EDFF);
+    overflow: auto;
+    height: 100%;
 }
 
 .leftSideColumn {
-  display: flex;
-  flex-flow: column nowrap;
-  max-height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    align-items: center;
+    flex: 2;
+    margin: 2rem 1rem 0rem 1rem;
 }
 
-
-.questionForm input {
-  width: 400px; /* Set the desired width */
-  padding: 0.5rem; /* Optional: Add padding for better appearance */
-  border-radius: 5px;
-  border: none;
-  margin-bottom: 0.5rem; /* Space between input and button */
-}
-
-.chatForm {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.chat {
-  display: flex;
-  align-items: flex-end;
-}
-
-.app {
-  background-color: rgb(125, 154, 255);
-}
-
-.chatbox {
- width: 500px;
- height:300px;
- padding: 0.5rem; 
- color: rgb(0, 0, 0);
- background-color: rgb(255, 255, 255);
- border-radius: 5px;
- border: none;
- margin-right: 5px;   
- font-family: var(--font-mono);
+.questionForm {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
 
 }
 
- .submitbutton {
-  color: white;
-  height: 50px;
-  background-color: rgb(109, 116, 189);
-  border-radius: 4px;
-  border: none;
- }
+.questionInput {
+    width: 64%;
+}
 
- /* .submitQuestion {
-  color: white;
-  background-color: rgb(121,143,243);
-  border-radius: 4px;
-  border: none;
- }
-  */
-
- .output {
-  width: 800px; /* Set the desired width */
-  font-size: 1rem;
-  color: black;
-  display: block; /* Ensures the output is treated as a block-level element */
-  margin-top: 20px; /* Adjust the value to provide enough space above the output */
+.addbutton {
+    color: white;
+    background-color: rgb(109, 116, 189);
+    height: 100%;
+    width: 24%;
 }
 
 .questionList {
-  overflow-y: auto;
-  color: black;
-  width: 400px;
+    margin-top: 1rem;
+    overflow-y: auto;
+    color: black;
+    width: 90%;
 }
 
-.questionItem {
-  margin: 0.5rem 0;
-  color: black;
+.rightColumn {
+    max-height: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    flex: 3;
+    margin: 2rem;
 }
 
- .text {
-  color: black;
- }
- .recordingButtons {
-  display: flex;
-  flex-direction: row;
-  flex-wrap:nowrap
- }
+.output {
+    flex: 3;
+    background-color: aliceblue;
+    font-size: 1rem;
+    color: black;
+    display: block; /* Ensures the output is treated as a block-level element */
+    overflow-y: scroll;
+    border-radius: 8px;
+    width: 100%;
+    padding: 0.5rem;
+
+    .completion {
+        white-space: pre-wrap;
+    }
+}
+
+.chatForm {
+    margin-top: 1rem;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 0.5rem;
+    border-radius: 5px;
+    align-content: space-around;
+}
+
+.chatbox {
+    flex: 7;
+    color: rgb(0, 0, 0);
+    height: 100%;
+    border: none;  
+    font-family: var(--font-mono);
+}
+
+.buttonGroup {
+    flex: 1;
+    margin-left: 1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.submitbutton {
+    color: white;
+    background-color: rgb(109, 116, 189);
+    width: 100%;
+}
