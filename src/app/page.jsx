@@ -151,7 +151,6 @@ export default function Page() {
                         rows={4}
                         sx = {{ ".MuiInputBase-root": {height: "100%"} }}
                     />
-                    {/* <button className={styles.stopbutton} onClick={stop}>Stop</button> */}
                     <div className={styles.buttonGroup}>
                         {hasRecognitionSupport ? (
                         <>
