@@ -39,6 +39,7 @@ import MicIcon from '@mui/icons-material/Mic';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import CircularProgress from '@mui/material/CircularProgress';
 import StopCircleIcon from '@mui/icons-material/StopCircle';
+import QuestionList from "../components/QuestionList/QuestionList"
 
 export default function Page() {
     //left
@@ -53,17 +54,35 @@ export default function Page() {
         "How do you approach problems? What is your process?",
     ]);
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
+    const [editingIndex, setEditingIndex] = useState(null);
 
     const handleSubmitQuestion = (e) => {
         e.preventDefault();
         if (inputVal.trim()) {
-            setQuestions((prevQuestions) => [...prevQuestions, inputVal]);
-            setInputVal("");
+          if (editingIndex !== null) {
+            setQuestions(questions.map((q, i) => i === editingIndex ? inputVal : q));
+            setEditingIndex(null);
+          } else {
+            setQuestions([...questions, inputVal]);
+          }
+          setInputVal("");
         }
     };
 
     const handleCardClick = (index) => {
     setSelectedQuestionIndex(index);
+    };
+
+    const handleEditClick = (index) => {
+        setInputVal(questions[index]);
+        setEditingIndex(index);
+      };
+    
+    const handleDeleteClick = (index) => {
+        setQuestions(questions.filter((_, i) => i !== index));
+        if (selectedQuestionIndex === index) {
+            setSelectedQuestionIndex(0);
+        }
     };
 
     //right
@@ -101,33 +120,20 @@ export default function Page() {
                         fullWidth
                         id="question-input"
                         className={styles.questionInput}
-                        label="New Interview Question"
+                        label={editingIndex !== null ? "Edit question" : "New question"}
                         value={inputVal}
                         onChange={(e) => setInputVal(e.target.value)}
                         sx={{width: "100%"}}
                     />
-                    <Button className={styles.addbutton} onClick={handleSubmitQuestion}>Add to List</Button>
+                    <Button className={styles.addbutton} onClick={handleSubmitQuestion}>{editingIndex !== null ? "Update" : "Add to List"}</Button>
                 </form>
-                <div className={styles.questionList}>
-                    <h3>Interview Practice Questions</h3>
-                    <div>
-                        {questions.map((question, index) => (
-                        <Card
-                            key={index}
-                            style={{
-                            marginBottom: "10px",
-                            cursor: "pointer",
-                            backgroundColor: selectedQuestionIndex === index ? "#798FF3" : "white",
-                            }}
-                            onClick={() => handleCardClick(index)}
-                        >
-                            <CardContent>
-                                <Typography variant="body1">{question}</Typography>
-                            </CardContent>
-                        </Card>
-                        ))}
-                    </div>
-                </div>
+                <QuestionList
+                    questions={questions}
+                    selectedQuestionIndex={selectedQuestionIndex}
+                    onCardClick={handleCardClick}
+                    onEditClick={handleEditClick}
+                    onDeleteClick={handleDeleteClick}
+                />
             </div>
             {/*right*/}
             <div className={styles.rightColumn}>
