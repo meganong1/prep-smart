@@ -137,9 +137,9 @@ export default function Page() {
                 <form className={styles.chatForm}
                     onSubmit={(e) => {
                         e.preventDefault();
-                        let textWithPrompt = responsePrompt + questions[selectedQuestionIndex]
-                            + "to the answer (be very specific, keep under 250 words):" + text
-                            + ". if the response is too short, be very harsh";
+                        let textWithPrompt = responsePrompt + questions[selectedQuestionIndex] 
+                        + "You are an interview coach rating interviewee's reponse to this interview question: " + text 
+                        + "Give the interviewee's response feedback on whether it's good or bad, if it's bad give them actionable stpes to improve. Don't have to give examples.";
                         complete(textWithPrompt);
                     }}>
                     <TextField
