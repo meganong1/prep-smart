@@ -13,10 +13,12 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.18",
     "@mui/material": "^5.15.18",
+    "@react-oauth/google": "^0.12.1",
     "@types/dom-speech-recognition": "^0.0.4",
     "ai": "^3.1.12",
-    "axios": "^1.6.8",
+    "axios": "^1.7.9",
     "cohere-ai": "^7.10.0",
+    "firebase": "^11.1.0",
     "next": "^14.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -26,5 +28,10 @@
     "@types/react": "18.3.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.3"
-  }
+  },
+  "description": "## Inspiration Our inspiration for creating PrepSmart came from our personal experiences. We realized the importance of effective communication skills during job interviews. Many candidates, despite having the right qualifications, struggle to articulate their thoughts clearly and concisely which often leads to missed opportunities. We sought to build a tool that could help individuals practice and improve their interview responses by providing instant feedback tailored to the interviewee’s response.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
