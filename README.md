@@ -1,4 +1,3 @@
-## PrepSmart AI
 
 ## Inspiration
 Our inspiration for creating PrepSmart came from our personal experiences. We realized the importance of effective communication skills during job interviews. Many candidates, despite having the right qualifications, struggle to articulate their thoughts clearly and concisely which often leads to missed opportunities. We sought to build a tool that could help individuals practice and improve their interview responses by providing instant feedback tailored to the interviewee’s response. 
@@ -8,7 +7,7 @@ Our inspiration for creating PrepSmart came from our personal experiences. We re
 
 Users enter a list of interview questions into the practice sets and tailor their interview prep question sequence according to their preparation needs. Our real-time speech-to-text recognition intakes user voice response as they speak, and this helps simulate the scenario of an actual interview where an interviewee has to articulate a response right on the spot. So our PrepSmart AI interview coach not only helps you hone your responses, it also helps users to be spontaneous, flexible and adaptive in an interview to create a dynamic and engaging dialogue.
 
-The AI interview coach will evaluate the user’s response and provide feedback, not only giving advice on wording but also the overall structure of speech. Our PrepSmart AI interview coach will prompt users to provide more vivid examples, or restructure the wording and the speech to make the example sound more impactful. 
+The AI interview coach will evaluate the user’s response and provide feedback, not only giving advice on wording but also the overall structure of speech. Our PrepSmart AI interview coach will prompt users to provide more vivid examples, or restructure the wording and the speech to make the example sound more impactful.
 
 PrepSmart is built with the user’s career success in mind. We only succeed when our users do!
 
@@ -27,4 +26,6 @@ As a team of four developers, we struggled quite a bit with the design of our ap
 
 
 <img width="1210" src="https://github.com/user-attachments/assets/4dca5002-bf97-4946-a758-8ca53c40e3eb" />
-<img width="1255" src="https://github.com/user-attachments/assets/5e2c7001-c606-4ad4-a162-7fc12eb74f3f" />
+
+![Screenshot 2025-01-01 at 8 26 40 PM](https://github.com/user-attachments/assets/522290f6-6849-49ae-b860-2716c9c68d19)
+
