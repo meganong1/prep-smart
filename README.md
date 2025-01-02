@@ -25,3 +25,6 @@ As a team of four developers, we struggled quite a bit with the design of our ap
 - Incorporating the Cohere Command-Nightly Chat API for the AI interview coach.
 - Developing the UI design to create an intuitive and user-friendly interview preparation experience.
 
+
+<img width="1210" src="https://github.com/user-attachments/assets/4dca5002-bf97-4946-a758-8ca53c40e3eb" />
+<img width="1255" src="https://github.com/user-attachments/assets/5e2c7001-c606-4ad4-a162-7fc12eb74f3f" />
